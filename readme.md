@@ -27,3 +27,15 @@ apache will be done one day
 
 > [!CAUTION]
 > help will not be given setting this up, what you see is what you get. (if there are any issues with the code itself support will be provided but thats it)
+
+# render deployment
+if Render native build fails (often due to missing PHP extensions), deploy with Docker using the included files:
+
+- `render.yaml`
+- `Dockerfile`
+
+This image installs required extensions from `composer.json` (`dom`, `mbstring`, `soap`) and starts the app with:
+
+```bash
+php -S 0.0.0.0:$PORT -t public
+```
